@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Students\Tables;
 
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -21,6 +22,12 @@ class StudentsTable
                 TextColumn::make('email')->label('Email')->searchable()->sortable(),
                 TextColumn::make('phone')->label('Phone')->searchable()->sortable(),
                 TextColumn::make('address')->label('Address')->searchable()->sortable(),
+                TextColumn::make('wa_number')->label('WhatsApp Number')->searchable()->sortable(),
+                TextColumn::make('fb')->label('Facebook')->searchable()->sortable(),
+                TextColumn::make('ig')->label('Instagram')->searchable()->sortable(),
+                TextColumn::make('twitter')->label('Twitter')->searchable()->sortable(),
+                TextColumn::make('linkedin')->label('LinkedIn')->searchable()->sortable(),
+                TextColumn::make('tiktok')->label('TikTok')->searchable()->sortable(),
                 TextColumn::make('created_at')->label('Created At')->dateTime(),
                 TextColumn::make('updated_at')->label('Updated At')->dateTime(),
             ])
@@ -37,6 +44,11 @@ class StudentsTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+                    FilamentExportBulkAction::make('export')
+                        ->label('Export All')
+                        ->defaultPageOrientation('landscape')
+                        ->defaultFormat('pdf')
+                        ->extraViewData(['paperSize' => 'a2', 'title' => 'Student List']),
                 ]),
             ]);
     }

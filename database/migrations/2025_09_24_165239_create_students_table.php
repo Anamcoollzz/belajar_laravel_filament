@@ -17,6 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
+            $table->string('wa_number')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('ig')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('tiktok')->nullable();
             $table->timestamps();
         });
     }

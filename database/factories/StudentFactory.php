@@ -23,6 +23,12 @@ class StudentFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
+            'wa_number' => $this->faker->phoneNumber(),
+            'fb' => $this->faker->userName(),
+            'ig' => $this->faker->userName(),
+            'twitter' => $this->faker->userName(),
+            'linkedin' => $this->faker->userName(),
+            'tiktok' => $this->faker->userName(),
         ];
     }
 }
